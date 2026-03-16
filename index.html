@@ -51,6 +51,15 @@
             transform: scale(1.1);
         }
 
+        /* Banner Slider logic */
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slider-slide {
+            min-width: 100%;
+        }
+
         /* Glassmorphism Navigation */
         .nav-blur {
             background-color: rgba(0, 0, 0, 0.85);
@@ -138,29 +147,56 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden px-6">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         </div>
         
-        <div class="relative z-10 text-center w-full max-w-6xl pt-20">
-            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[160px] font-black tracking-tighter mb-4 leading-[0.8] text-white">
-                SHELBIN SHAJI <br />
-                <span class="text-zinc-700 uppercase"></span>
+        <div class="relative z-10 text-center w-full max-w-7xl pt-20 flex flex-col items-center">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[140px] font-black tracking-tighter mb-4 leading-[0.8] text-white">
+                SHELBIN SHAJI
             </h1>
             <p class="text-zinc-400 text-[10px] sm:text-xs md:text-sm max-w-xl mx-auto mb-10 leading-relaxed font-black uppercase tracking-[0.4em] opacity-80">
                 Video Editor <span class="mx-2 text-purple-600">•</span> Aspiring Movie Maker
             </p>
-            <div class="flex flex-wrap gap-4 justify-center items-center">
+            
+            <!-- Hero Buttons -->
+            <div class="flex flex-wrap gap-4 justify-center items-center mb-16">
                 <button onclick="scrollToSection('work')" class="w-full sm:w-auto px-10 py-5 bg-white text-black hover:bg-purple-600 hover:text-white rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95">
                     Watch Samples
                 </button>
                 <button onclick="openVideoModal('https://d2mf0dukwsiak5.cloudfront.net/r7vt30%2Ffile%2F8feab4bdc19fec44d321304f79b5a38e_dbc2b92d46d9c1e56394907e0a2bd60e.mp4?response-content-disposition=inline%3Bfilename%3D%228feab4bdc19fec44d321304f79b5a38e_dbc2b92d46d9c1e56394907e0a2bd60e.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773701182&Signature=A51io4SQd1hTVpYevDVsR03QNTm~8mVD-JZTVxGpxkePcBzAvX7aOaeF9eC62ABgiyQSufYVtz6pUQZjZ4KdJoilWFLV7MxSteDwU-TL0Gi5f37O~gm~J-9o4vKPn6~8VqHcXzM~3Nqawj68M-ZeqUbEu~PWxmc8P4m-8rz~t~m5SrVzzYd98yjnVOWGizfdMZ9HjseyIrCxbjZfnfHkLGYDuLULVSNnsN3k8jHCkU-bP31jYbI~QubAV5fNXBTE4WQzjsRO9UOzBSSsTxusULBpuiQGkJOfSu39v51ifY5133R64~gqFoZAVYcCnn~oYq09pzs-~9WIHYEa2U1-9Q__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')" class="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white hover:bg-white hover:text-black rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-play text-xs"></i> Show Ad I Created
                 </button>
-                <a href="SHELBIN RESUME.pdf" target="_blank" class="w-full sm:w-auto px-10 py-5 bg-purple-600 text-white hover:bg-purple-700 rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 flex items-center justify-center gap-3">
+                <a href="https://d2luddxp0py34j.cloudfront.net/m76y30%2Ffile%2F81bb9a56d758dc5348134ac097121f12_ce326188c8aece375ae2918009121eb4.pdf?response-content-disposition=inline%3Bfilename%3D%2281bb9a56d758dc5348134ac097121f12_ce326188c8aece375ae2918009121eb4.pdf%22%3B&response-content-type=application%2Fpdf&Expires=1773680248&Signature=ZR-N5XBMtF8j~PIxKK8oFGDiU-h0Ndql~S3H5jNpS87vGK4wNPBmkdutyIvujtKGZ~waFpEkalVZgWpaYAp850CVSEHYolrLOzOOkdhDtFs8EDlImR8rhWlLkEIOXSIikvNgL47VGlbFm~BkXTYdSJHgQTm2~VcofF4AsbSDlBgtlsVkgDQwLhrAFMvAEkXDRIAaESJ9NCX6woxvk2nL8rdvj6akIWQMp0Jdm8u~9~fJ9pPpppmiFEYwDcdr6WSSwJpQf57-oMR7v675z55LMteuKnp8h~zEwQZjKmct~ZmHTHAuyjfhUK1~4FmNomdMov82E8KApOmNuhWoO9urgA__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ" target="_blank" class="w-full sm:w-auto px-10 py-5 bg-purple-600 text-white hover:bg-purple-700 rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-download text-xs"></i> Download CV
                 </a>
+            </div>
+
+            <!-- Banner-sized Slider (1500*600 Aspect Ratio) -->
+            <div class="relative w-full max-w-6xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 group bg-zinc-900 shadow-2xl">
+                <div id="image-slider" class="slider-wrapper">
+                    <div class="slider-slide relative">
+                        <img src="M.jpg" alt="Shelbin Shaji 1" class="w-full aspect-[5/2] object-cover">
+                    </div>
+                    <div class="slider-slide relative">
+                        <img src="Untitled-1.jpg" alt="Shelbin Shaji 2" class="w-full aspect-[5/2] object-cover">
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-purple-600 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-purple-600 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicators -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                    <div id="dot-0" class="w-1.5 h-1.5 rounded-full bg-white transition-all scale-125"></div>
+                    <div id="dot-1" class="w-1.5 h-1.5 rounded-full bg-white/30 transition-all"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -246,7 +282,7 @@
             </div>
 
             <div class="masonry">
-                <!-- Video Item 1 (Position 1 - Was 4) -->
+                <!-- Video Item 1 (Social Reel) -->
                 <div class="masonry-item group" onclick="openVideoModal('https://d3jqeznwt0i3tt.cloudfront.net/g20110%2Ffile%2F9c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4?response-content-disposition=inline%3Bfilename%3D%229c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697547&Signature=Gqh-Tk6MFGMjgZ3FCurhANKjk~7JNb2vQw~HFDKhxTwgnlvIL7JanbjkxUZz8tjKSgUCYy-70AlnHYB7m~H-sLWBLSGvsoTu7-VjodsbJKeYDykK31CWC2LOAt3~DaXxuNEi8z5EZrWCXAWI7-bSbyRweDQBRLGUqBTBhh0HS~5E5NwwtMB9GrGvpdtCKIqWur5Jw4cHodGtl0pYKyJUR4zQRdNtf5MF8D32hAgrOYtWYlp-N1ZOX6-ukldWZL~dwwvncPngoZGCx09-WVcqiL7gdQlWAseWt~Dc3REcEgXHqLeUhNzXzPCrXhblzLWa3VbtcKvI~heZr6KIF7V~vw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
                     <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
                         <video loop muted playsinline class="w-full h-full object-cover" src="https://d3jqeznwt0i3tt.cloudfront.net/g20110%2Ffile%2F9c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4?response-content-disposition=inline%3Bfilename%3D%229c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697547&Signature=Gqh-Tk6MFGMjgZ3FCurhANKjk~7JNb2vQw~HFDKhxTwgnlvIL7JanbjkxUZz8tjKSgUCYy-70AlnHYB7m~H-sLWBLSGvsoTu7-VjodsbJKeYDykK31CWC2LOAt3~DaXxuNEi8z5EZrWCXAWI7-bSbyRweDQBRLGUqBTBhh0HS~5E5NwwtMB9GrGvpdtCKIqWur5Jw4cHodGtl0pYKyJUR4zQRdNtf5MF8D32hAgrOYtWYlp-N1ZOX6-ukldWZL~dwwvncPngoZGCx09-WVcqiL7gdQlWAseWt~Dc3REcEgXHqLeUhNzXzPCrXhblzLWa3VbtcKvI~heZr6KIF7V~vw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
@@ -256,7 +292,7 @@
                     </div>
                 </div>
 
-                <!-- Video Item 2 -->
+                <!-- Video Item 2 (Brand Content) -->
                 <div class="masonry-item group" onclick="openVideoModal('https://d3ri2dsnqsgisz.cloudfront.net/j4q95f%2Fpreview%2F76289390%2Fmain_x360.mp4?response-content-disposition=inline%3Bfilename%3D%22main_x360.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697526&Signature=RiDdAIdbbOZ-3xGVMi~vMyqrPfktynLwMq3QthLEkUeONFh2~rTHrM9VMET-TKXtVj3ZnYnybnoeHKHg8axmqfR2JUff7PbDWir8yJKK~5VUaBesLZIbStNJu8AfB-fgzCjW9m0nQayA4XdRh7-QSVsPmpu~rA-b67AsmlinkrNn8tuiqGVTr-jA66kYTqcJAYtfXTkoeiAjRfO6fZSZkv0lNp4DoLL4k0twMJZHWB189-JlJy-sbsw3zY7BclVZT4jjZCZBYslE-m8eRHrmMKSJFNXsz6lWe6Cyu9hNHulY~MMqKVPyukQODKKGgV35LrqFhwQoTMmOL-I8NmXeJw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
                     <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
                         <video loop muted playsinline class="w-full h-full object-cover" src="https://d3ri2dsnqsgisz.cloudfront.net/j4q95f%2Fpreview%2F76289390%2Fmain_x360.mp4?response-content-disposition=inline%3Bfilename%3D%22main_x360.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697526&Signature=RiDdAIdbbOZ-3xGVMi~vMyqrPfktynLwMq3QthLEkUeONFh2~rTHrM9VMET-TKXtVj3ZnYnybnoeHKHg8axmqfR2JUff7PbDWir8yJKK~5VUaBesLZIbStNJu8AfB-fgzCjW9m0nQayA4XdRh7-QSVsPmpu~rA-b67AsmlinkrNn8tuiqGVTr-jA66kYTqcJAYtfXTkoeiAjRfO6fZSZkv0lNp4DoLL4k0twMJZHWB189-JlJy-sbsw3zY7BclVZT4jjZCZBYslE-m8eRHrmMKSJFNXsz6lWe6Cyu9hNHulY~MMqKVPyukQODKKGgV35LrqFhwQoTMmOL-I8NmXeJw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
@@ -266,7 +302,7 @@
                     </div>
                 </div>
 
-                <!-- Video Item 3 -->
+                <!-- Video Item 3 (New Practical) -->
                 <div class="masonry-item group" onclick="openVideoModal('https://d3cs7t7ywbci0.cloudfront.net/p1jx00%2Ffile%2F9ace41701c46470373958c78bd708a13_6021ed6d7de66b2f1403e0ff91aaee40.mp4?response-content-disposition=inline%3Bfilename%3D%229ace41701c46470373958c78bd708a13_6021ed6d7de66b2f1403e0ff91aaee40.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773699812&Signature=Dit3ZDbUzU01ijv7WJna~k2eBe5UQ1EAL1AwRNPynGuxRjhEmDMoYWvIObjzCyCbG~m~ci53q5WixrXnBHl5bmEGQ6CTxQmU-kZSsaC7zMN6E7kGImo8mjC3n5rssUf-zSk1ENSiTix~60~qM66a~62jRnjeBsVpyCxRe5GPcKjtSgN0R1hFoIrsF-tgRMJ7PmC6-Yxivvz2vqJu7tDdIn-o1TOYqvjp1zj0o7ywhmRjuWEjb3xhzjh3EVD5sO7mjkNE-pwMovvnJYU4JjotRshmtlMdxmi1lN~YyD8kZUwkHcOToMR9OZ7gVdMxAsqWRgCuaq2RAn84CyO0km9cHQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
                     <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
                         <video loop muted playsinline class="w-full h-full object-cover" src="https://d3cs7t7ywbci0.cloudfront.net/p1jx00%2Ffile%2F9ace41701c46470373958c78bd708a13_6021ed6d7de66b2f1403e0ff91aaee40.mp4?response-content-disposition=inline%3Bfilename%3D%229ace41701c46470373958c78bd708a13_6021ed6d7de66b2f1403e0ff91aaee40.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773699812&Signature=Dit3ZDbUzU01ijv7WJna~k2eBe5UQ1EAL1AwRNPynGuxRjhEmDMoYWvIObjzCyCbG~m~ci53q5WixrXnBHl5bmEGQ6CTxQmU-kZSsaC7zMN6E7kGImo8mjC3n5rssUf-zSk1ENSiTix~60~qM66a~62jRnjeBsVpyCxRe5GPcKjtSgN0R1hFoIrsF-tgRMJ7PmC6-Yxivvz2vqJu7tDdIn-o1TOYqvjp1zj0o7ywhmRjuWEjb3xhzjh3EVD5sO7mjkNE-pwMovvnJYU4JjotRshmtlMdxmi1lN~YyD8kZUwkHcOToMR9OZ7gVdMxAsqWRgCuaq2RAn84CyO0km9cHQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
@@ -286,7 +322,7 @@
                     </div>
                 </div>
 
-                <!-- Video Item 5 (New Position 5 - Was 8) -->
+                <!-- Video Item 5 (Position 5 - Narrative Sound) -->
                 <div class="masonry-item group" onclick="openVideoModal('https://d2o0is6348o2o4.cloudfront.net/k0z110%2Ffile%2Fba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4?response-content-disposition=inline%3Bfilename%3D%22ba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697578&Signature=Y72cartgxcMjoeF4nuwrqanh43KMNTDXqVp17K2cDBzln3sXAmiGRP~a1sBPdMaBilirlPKHIkk7rNNVeXU~FmSQfaH9yIadEP97H8ZuM1I7oyyp~pMQoc02TuWGlTAnZzz0lijY7SRFswoJpuSlxSUaPEKawsS~2hYh5ui9zCH-KAQxaePfCP8fSbfaYSbbZsiOODzMBeRLKOQDcugbjmaQx21hu39BhxpgqThxcVhANyh0gBJ-BmXR6iWV9jkmus0RyBUnNcBzyWkh0i7AiNCvXCXPqvUjTdMq7HKdWanl3h3me3hsIX9fHSt3LLXb6PyuLDbzyeqIw1sKtK0Icg__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
                     <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
                         <video loop muted playsinline class="w-full h-full object-cover" src="https://d2o0is6348o2o4.cloudfront.net/k0z110%2Ffile%2Fba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4?response-content-disposition=inline%3Bfilename%3D%22ba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697578&Signature=Y72cartgxcMjoeF4nuwrqanh43KMNTDXqVp17K2cDBzln3sXAmiGRP~a1sBPdMaBilirlPKHIkk7rNNVeXU~FmSQfaH9yIadEP97H8ZuM1I7oyyp~pMQoc02TuWGlTAnZzz0lijY7SRFswoJpuSlxSUaPEKawsS~2hYh5ui9zCH-KAQxaePfCP8fSbfaYSbbZsiOODzMBeRLKOQDcugbjmaQx21hu39BhxpgqThxcVhANyh0gBJ-BmXR6iWV9jkmus0RyBUnNcBzyWkh0i7AiNCvXCXPqvUjTdMq7HKdWanl3h3me3hsIX9fHSt3LLXb6PyuLDbzyeqIw1sKtK0Icg__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
@@ -317,268 +353,4 @@
                 </div>
 
                 <!-- Video Item 8 (Was 7) -->
-                <div class="masonry-item group" onclick="openVideoModal('https://d1t7dw5nfeik44.cloudfront.net/v8x010%2Ffile%2F342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4?response-content-disposition=inline%3Bfilename%3D%22342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697541&Signature=YsSGdjk9q577sJpFXCsvaeqZihdy969j04T2orrdzxXj2PHQT848c0KrN~HcIQEQ7q2743J~wFxtEmn1TgUf8yoOnQ-3Y8XzEOUO5VW5abEzg~SAoDOemjveBcd0Mj~YyVREzqYBJkYXbtkLrlGStux5uCa1hcV6f3W6FppgXgy7Kht2ML69NUaDiUbQKV9LPRhpkoSscskQisY~~JhFqZ-l8Wt9Q7eQMveoBfWLLRcS~GqXCel1~JMMVVDx4ktbcXh9Fyua6hTONvZHZWosMmr8apbCSuv-WEBkLsRb44tu0aOY4GoszejyKdqdMfNNnxwTd9A0XxfjmG3CBUqC~g__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d1t7dw5nfeik44.cloudfront.net/v8x010%2Ffile%2F342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4?response-content-disposition=inline%3Bfilename%3D%22342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697541&Signature=YsSGdjk9q577sJpFXCsvaeqZihdy969j04T2orrdzxXj2PHQT848c0KrN~HcIQEQ7q2743J~wFxtEmn1TgUf8yoOnQ-3Y8XzEOUO5VW5abEzg~SAoDOemjveBcd0Mj~YyVREzqYBJkYXbtkLrlGStux5uCa1hcV6f3W6FppgXgy7Kht2ML69NUaDiUbQKV9LPRhpkoSscskQisY~~JhFqZ-l8Wt9Q7eQMveoBfWLLRcS~GqXCel1~JMMVVDx4ktbcXh9Fyua6hTONvZHZWosMmr8apbCSuv-WEBkLsRb44tu0aOY4GoszejyKdqdMfNNnxwTd9A0XxfjmG3CBUqC~g__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
-                        <button onclick="event.stopPropagation(); toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
-                            <i class="fa-solid fa-volume-xmark"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Video Item 9 (New Position 9 - Was 1) -->
-                <div class="masonry-item group" onclick="openVideoModal('https://d3o8hbmq1ueggw.cloudfront.net/67p00%2Ffile%2Fae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4?response-content-disposition=inline%3Bfilename%3D%22ae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697021&Signature=ce4Nd2-L3xV~oURQhvoPNLAb~hZjVmJ6q7Ib69YPzqMQeUKFCBFZAw8Lg0KgdAleI5ninTTr~SdYcce-b2yOKeQqzlrglZXTVRd9CnQ2mpBtYs4Scqh5Iv88rnO9kgTQHfyLFcViYFhOytXJ02e5WR2w9clnQMek~SV6MZI9mzBqOlzaCfbevPPxdwmk1Dc0Njhth4Y1b1drAWSAcgtfe8RRu1n1XgF1Mp0vHvz8y0Pxk5VVfYk4shCYpOMF1YzmkXc5e1WnE5WQqe~KYlFHHqlTmTiAwc4yB4LdLqbIYOgsHpog1KXe1yZt7w7GbSIjr6Xidb1-WlP6~hey-4bTLw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ')">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-rose-900/10 border border-white/5 group shadow-2xl transition-all duration-700 cursor-pointer">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d3o8hbmq1ueggw.cloudfront.net/67p00%2Ffile%2Fae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4?response-content-disposition=inline%3Bfilename%3D%22ae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697021&Signature=ce4Nd2-L3xV~oURQhvoPNLAb~hZjVmJ6q7Ib69YPzqMQeUKFCBFZAw8Lg0KgdAleI5ninTTr~SdYcce-b2yOKeQqzlrglZXTVRd9CnQ2mpBtYs4Scqh5Iv88rnO9kgTQHfyLFcViYFhOytXJ02e5WR2w9clnQMek~SV6MZI9mzBqOlzaCfbevPPxdwmk1Dc0Njhth4Y1b1drAWSAcgtfe8RRu1n1XgF1Mp0vHvz8y0Pxk5VVfYk4shCYpOMF1YzmkXc5e1WnE5WQqe~KYlFHHqlTmTiAwc4yB4LdLqbIYOgsHpog1KXe1yZt7w7GbSIjr6Xidb1-WlP6~hey-4bTLw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
-                        <button onclick="event.stopPropagation(); toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
-                            <i class="fa-solid fa-volume-xmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 md:py-40 px-6 border-t border-white/5 scroll-mt-10">
-        <div class="max-w-4xl mx-auto reveal">
-            <h2 class="text-3xl md:text-5xl font-black tracking-tighter mb-20 italic uppercase flex items-center gap-6 text-white leading-none">
-                <i class="fa-solid fa-briefcase text-purple-600 text-2xl md:text-4xl"></i> Experience
-            </h2>
-            <div class="space-y-24 border-l border-white/10 pl-8 ml-2">
-                <div class="relative group">
-                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-black border-4 border-purple-600 group-hover:bg-purple-600 transition-all duration-300"></div>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <h3 class="text-xl md:text-2xl font-black tracking-tight text-white uppercase group-hover:text-purple-500 transition-colors">Short-Form Creator</h3>
-                            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600 py-1 px-3 border border-zinc-800 rounded-full">July 2024 – Sept 2024</span>
-                        </div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-purple-600">CreativHeads</p>
-                        <p class="text-zinc-500 leading-relaxed text-sm md:text-base font-medium max-w-2xl">
-                            Specialized in high-impact vertical editing for social media campaigns, driving audience retention through rhythmic cutting and dynamic motion assets.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-black border-4 border-purple-600 group-hover:bg-purple-600 transition-all duration-300"></div>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <h3 class="text-xl md:text-2xl font-black tracking-tight text-white uppercase group-hover:text-purple-500 transition-colors">Post-Production Artist</h3>
-                            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600 py-1 px-3 border border-zinc-800 rounded-full">2024 – Present</span>
-                        </div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-purple-600">Grace Wedding Studio</p>
-                        <p class="text-zinc-500 leading-relaxed text-sm md:text-base font-medium max-w-2xl">
-                            Managing end-to-end post-production for high-end wedding films. Expertise in multicam orchestration, professional color grading, and emotional sound design.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-black border-4 border-purple-600 group-hover:bg-purple-600 transition-all duration-300"></div>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <h3 class="text-xl md:text-2xl font-black tracking-tight text-white uppercase group-hover:text-purple-500 transition-colors">Freelance Editor</h3>
-                            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600 py-1 px-3 border border-zinc-800 rounded-full">2024 – Present</span>
-                        </div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-purple-600">Independent</p>
-                        <p class="text-zinc-500 leading-relaxed text-sm md:text-base font-medium max-w-2xl">
-                            Collaborating with independent creators and brands to translate conceptual ideas into polished visual narratives across advertising and digital storytelling formats.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-zinc-950 scroll-mt-10 overflow-hidden">
-        <div class="max-w-6xl mx-auto reveal">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
-                <div>
-                    <h2 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600 mb-12">Fundamentals</h2>
-                    <div class="space-y-12">
-                        <div class="border-l border-white/10 pl-8">
-                            <h3 class="text-lg font-black italic text-white uppercase tracking-tight leading-none mb-3">BA MULTIMEDIA</h3>
-                            <p class="text-zinc-500 uppercase text-[10px] font-black tracking-widest leading-loose">St. Thomas College, Thrissur <br> 2nd Year • 2024 — Present</p>
-                        </div>
-                        <div class="border-l border-white/10 pl-8">
-                            <h3 class="text-lg font-black italic text-white uppercase tracking-tight leading-none mb-3">BASE LOCATION</h3>
-                            <p class="text-zinc-500 uppercase text-[10px] font-black tracking-widest">Thrissur, Kerala, India</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-10">
-                    <h2 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600">Direct Connect</h2>
-                    <div class="space-y-6">
-                        <a href="mailto:shelbinshaji3@gmail.com" class="text-lg sm:text-2xl md:text-3xl font-black text-white hover:text-purple-500 transition-all flex items-center gap-4 break-all leading-tight uppercase group">
-                            shelbinshaji3@gmail.com <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-2 transition-transform"></i>
-                        </a>
-                        <a href="tel:+918590860334" class="text-2xl md:text-5xl font-black text-white hover:text-purple-500 transition-all flex items-center gap-4 tracking-tighter group">
-                            +91 85908 60334 <i class="fa-solid fa-phone text-xs md:text-sm group-hover:rotate-12 transition-transform"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4 pt-6">
-                        <a href="https://wa.me/918590860334" target="_blank" class="w-16 h-16 rounded-3xl bg-green-600/10 hover:bg-green-600 text-white transition-all border border-green-600/20 flex items-center justify-center transform hover:-translate-y-2">
-                            <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        </a>
-                        <a href="https://www.instagram.com/shelbinee/" target="_blank" class="w-16 h-16 rounded-3xl bg-white/5 hover:bg-white/10 transition-all text-white border border-white/10 flex items-center justify-center transform hover:-translate-y-2">
-                            <i class="fa-brands fa-instagram text-2xl"></i>
-                        </a>
-                        <a href="https://www.facebook.com/shelbin.shaji.2025" target="_blank" class="w-16 h-16 rounded-3xl bg-white/5 hover:bg-white/10 transition-all text-white border border-white/10 flex items-center justify-center transform hover:-translate-y-2">
-                            <i class="fa-brands fa-facebook-f text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 border-t border-white/5 px-6 bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 opacity-30 group">
-            <div class="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-500 group-hover:opacity-100 transition-opacity">
-                © 2025 SHELBIN SHAJI • Thrissur, India
-            </div>
-            <div class="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-500 group-hover:opacity-100 transition-opacity italic">
-                CRAFTING CINEMATIC NARRATIVES • +91 85908 60334
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const modal = document.getElementById('video-modal');
-        const modalVideo = document.getElementById('modal-video-player');
-
-        function openVideoModal(url) {
-            modalVideo.src = url;
-            modal.style.display = 'flex';
-            modalVideo.play();
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeVideoModal() {
-            modalVideo.pause();
-            modalVideo.src = "";
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        modal.onclick = function(e) {
-            if (e.target === modal) {
-                closeVideoModal();
-            }
-        };
-
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const video = entry.target.querySelector('video');
-                const container = entry.target;
-                if (entry.isIntersecting) {
-                    container.classList.add('is-playing');
-                    video.play().catch(e => {});
-                } else {
-                    container.classList.remove('is-playing');
-                    video.pause();
-                }
-            });
-        }, { threshold: 0.6 });
-
-        window.onload = function() {
-            document.querySelectorAll('.video-container').forEach(container => {
-                videoObserver.observe(container);
-            });
-            revealSections();
-        };
-
-        window.onscroll = function() {
-            const navbar = document.getElementById("navbar");
-            if (window.pageYOffset > 50) {
-                navbar.classList.add("nav-blur");
-                navbar.classList.remove("py-6");
-                navbar.classList.add("py-3");
-            } else {
-                navbar.classList.remove("nav-blur");
-                navbar.classList.add("py-6");
-                navbar.classList.remove("py-3");
-            }
-            revealSections();
-        };
-
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const headerOffset = 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-            }
-            closeMobileMenu();
-        }
-
-        function toggleVolume(btn) {
-            const container = btn.closest('.video-container');
-            const video = container.querySelector('video');
-            const icon = btn.querySelector('i');
-            if (video.muted) {
-                video.muted = false;
-                icon.classList.remove('fa-volume-xmark');
-                icon.classList.add('fa-volume-high');
-            } else {
-                video.muted = true;
-                icon.classList.remove('fa-volume-high');
-                icon.classList.add('fa-volume-xmark');
-            }
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById("mobile-menu");
-            const icon = document.getElementById("menu-icon");
-            if (menu.classList.contains("translate-x-full")) {
-                menu.classList.remove("translate-x-full");
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-                document.body.style.overflow = "hidden";
-            } else {
-                closeMobileMenu();
-            }
-        }
-
-        function closeMobileMenu() {
-            const menu = document.getElementById("mobile-menu");
-            const icon = document.getElementById("menu-icon");
-            if(menu) menu.classList.add("translate-x-full");
-            if(icon) {
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-            }
-            document.body.style.overflow = "auto";
-        }
-
-        function revealSections() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-    
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E348TVNS06"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E348TVNS06');
-</script>
-</body>
-</html>
+                <div class="masonry-item group" onclick="openVideoModal('
