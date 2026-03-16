@@ -36,18 +36,20 @@
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .video-container:hover video, .video-container.playing video {
+        .video-container.is-playing video {
             opacity: 1;
             transform: scale(1.05);
         }
 
-        .video-container .play-overlay {
-            transition: opacity 0.4s ease, transform 0.4s ease;
+        /* Volume Toggle UI */
+        .volume-btn {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
         }
-
-        .video-container:hover .play-overlay, .video-container.playing .play-overlay {
-            opacity: 0;
-            transform: scale(1.2);
+        .volume-btn:hover {
+            background: rgba(147, 51, 234, 0.8);
+            transform: scale(1.1);
         }
 
         /* Glassmorphism Navigation */
@@ -220,69 +222,88 @@
                 <h2 class="text-4xl md:text-7xl font-black tracking-tighter mb-4 text-white italic uppercase leading-none">Selected Works</h2>
                 <div class="flex items-center gap-4 justify-center sm:justify-start">
                     <span class="h-px w-10 bg-zinc-700"></span>
-                    <p class="text-zinc-500 text-[10px] uppercase font-black tracking-[0.4em]">Tap to preview cinematic samples</p>
+                    <p class="text-zinc-500 text-[10px] uppercase font-black tracking-[0.4em]">Videos autoplay as you scroll</p>
                 </div>
             </div>
 
             <div class="masonry">
-                <!-- Video Item -->
+                <!-- Video Item 1 (Position 1) -->
                 <div class="masonry-item group">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700" onclick="handleVideoTap(this)" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-lighting-in-the-rain-31217-large.mp4"></video>
-                        <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white text-xl">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <h3 class="text-sm font-black text-gray-200 uppercase tracking-tight">Cinematic Portrait Highlight</h3>
-                        <p class="text-[9px] uppercase font-black tracking-widest text-purple-600 mt-3">Post-Production</p>
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 group shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d3o3njsj1xj4kw.cloudfront.net/p0k95f%2Fpreview%2F76289384%2Fmain_x360.mp4?response-content-disposition=inline%3Bfilename%3D%22main_x360.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697494&Signature=DsNeFwfSONU4eryWAa-dH3qRg-uPTjbCHQPanE8RdeZpVgksFLM6vLMwZsmtcihYVtVdQmqQGYIaFnDi3DcW-N-w57uZ7onN11M8C9KscTD0-1we5-dFIkUzIdLzxttJQcPiHBTsNHjXpBJgCTdvjm16OuOha6vGqj~rdZscbnZfvHmz5bExa3MOrbzvD3wkrXQ2boK7T0ZfOKBU4XnoZZ3SIiwj-2j1hTkXeRXXHeRiO8a16y~mVhn42~04~WcZvLOx6X0STu4htBHAhC3Ce-0r8E~-1vV5T0KSTdw9~VqAbviBRh9QjuNq0wOx4BTbpVlemv2jPNYrZ19s-4bhiQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
                     </div>
                 </div>
 
+                <!-- Video Item 2 (New Position 2 - Previously 8th) -->
                 <div class="masonry-item group">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden mb-6 bg-blue-900/10 border border-white/5 shadow-2xl transition-all duration-700" onclick="handleVideoTap(this)" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-neon-lights-33490-large.mp4"></video>
-                        <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white text-xl">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <h3 class="text-sm font-black text-gray-200 uppercase tracking-tight">Urban Fashion Reel</h3>
-                        <p class="text-[9px] uppercase font-black tracking-widest text-purple-600 mt-3">Rhythmic Edit</p>
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d1ulolibll5lbi.cloudfront.net/n69210%2Ffile%2F32ab16f8e874f16331f1ad3a53fc564f_568d434c17ee73ad0ba54d020aedfe86.mp4?response-content-disposition=inline%3Bfilename%3D%2232ab16f8e874f16331f1ad3a53fc564f_568d434c17ee73ad0ba54d020aedfe86.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697573&Signature=d3ujuUMTkJcijnRTubKezrrme36hJbJrwO7bvRIgcLJGDp7AauuXvpo9j~7C~0NTPQndQngx0ePYxrXPuJ6XiIaSo-x9GPxt6AHOpyGAce33N3xBXQR9nSRPtboGzq77ajkCB54z4SSDwqyRmAhCM3eIX18FzDEUcH4s1z3tglvFaZ5k9OaC6B7RWO9ARGej90bi~oJDAfNpFv9XrtUPO6LzoBAuSkUXxRBoS3fcxSAQpnGNI~RyGFpCBWIWCEvX1aOH~0bM3mje1CrJWso0T~qw0bq7tQwntr0KSEPUmyD53vhkHaRinrMtEs5gfikm5oFp~AdEqfT1wT6OJ~JL~A__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
                     </div>
                 </div>
 
+                <!-- Video Item 3 (New Position 3 - Previously 4th) -->
                 <div class="masonry-item group">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700" onclick="handleVideoTap(this)" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-man-working-on-his-laptop-34444-large.mp4"></video>
-                        <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white text-xl">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <h3 class="text-sm font-black text-gray-200 uppercase tracking-tight">Corporate Branding Strategy</h3>
-                        <p class="text-[9px] uppercase font-black tracking-widest text-purple-600 mt-3">Commercial</p>
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d3jqeznwt0i3tt.cloudfront.net/g20110%2Ffile%2F9c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4?response-content-disposition=inline%3Bfilename%3D%229c014141cb0c91bc3dca267f794f987c_5e9c4ce761338873ddaf505aa1f292d1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697547&Signature=Gqh-Tk6MFGMjgZ3FCurhANKjk~7JNb2vQw~HFDKhxTwgnlvIL7JanbjkxUZz8tjKSgUCYy-70AlnHYB7m~H-sLWBLSGvsoTu7-VjodsbJKeYDykK31CWC2LOAt3~DaXxuNEi8z5EZrWCXAWI7-bSbyRweDQBRLGUqBTBhh0HS~5E5NwwtMB9GrGvpdtCKIqWur5Jw4cHodGtl0pYKyJUR4zQRdNtf5MF8D32hAgrOYtWYlp-N1ZOX6-ukldWZL~dwwvncPngoZGCx09-WVcqiL7gdQlWAseWt~Dc3REcEgXHqLeUhNzXzPCrXhblzLWa3VbtcKvI~heZr6KIF7V~vw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
                     </div>
                 </div>
 
+                <!-- Video Item 4 (New Position 4 - Previously 5th) -->
                 <div class="masonry-item group">
-                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden mb-6 bg-rose-900/10 border border-white/5 shadow-2xl transition-all duration-700" onclick="handleVideoTap(this)" onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <video loop muted playsinline class="w-full h-full object-cover" src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-bride-posing-in-her-wedding-dress-34451-large.mp4"></video>
-                        <div class="play-overlay absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white text-xl">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </div>
-                        </div>
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d1bdhlpvv2677c.cloudfront.net/r3z95f%2Fpreview%2F76289399%2Fmain_x360.mp4?response-content-disposition=inline%3Bfilename%3D%22main_x360.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697566&Signature=RLPk8d8rCFeUPqZj68F4WdZwABciRJimtNmHAyQNO6c4Si4wC3TG80McG0G2OvjimXxtv5Ng2dLplYwQwHY-a1bYegZ2DxWiu9RwjPcEBzEcOyY0Zh-ZgsrXghkhj2wjbXcbDuVfVdU97O91vtgw8knP3vXl4Ejc-BvcgITsOSrGOZcz5H1trOrhBD3e6y7BTNg6b3qcnDZlRbkjjCpjFTLCgecWIrMHILKUzrnOUqzchBH7-wRyWCGVU2soCxz~GRH57mtE5~xGYgUsuPMHVNpPPksjETw71a1puy9NI5tBx51gVRzZ224LQCALeksOUZasA2qN3tYas5SKHLggeA__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
                     </div>
-                    <div class="px-4">
-                        <h3 class="text-sm font-black text-gray-200 uppercase tracking-tight">Grace Studios: Wedding Highlight</h3>
-                        <p class="text-[9px] uppercase font-black tracking-widest text-purple-600 mt-3">Cinematic Story</p>
+                </div>
+
+                <!-- Video Item 5 (New Position 5 - Previously 6th) -->
+                <div class="masonry-item group">
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d1t7dw5nfeik44.cloudfront.net/v8x010%2Ffile%2F342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4?response-content-disposition=inline%3Bfilename%3D%22342f4de4ad3b31db9c56225178ff55c7_c73332cc526d17ae6db9bd35df79f9a1.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697541&Signature=YsSGdjk9q577sJpFXCsvaeqZihdy969j04T2orrdzxXj2PHQT848c0KrN~HcIQEQ7q2743J~wFxtEmn1TgUf8yoOnQ-3Y8XzEOUO5VW5abEzg~SAoDOemjveBcd0Mj~YyVREzqYBJkYXbtkLrlGStux5uCa1hcV6f3W6FppgXgy7Kht2ML69NUaDiUbQKV9LPRhpkoSscskQisY~~JhFqZ-l8Wt9Q7eQMveoBfWLLRcS~GqXCel1~JMMVVDx4ktbcXh9Fyua6hTONvZHZWosMmr8apbCSuv-WEBkLsRb44tu0aOY4GoszejyKdqdMfNNnxwTd9A0XxfjmG3CBUqC~g__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Item 6 (New Position 6 - Previously 7th) -->
+                <div class="masonry-item group">
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d2o0is6348o2o4.cloudfront.net/k0z110%2Ffile%2Fba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4?response-content-disposition=inline%3Bfilename%3D%22ba227ff1e2691f8e5357941a0c96001f_21df9079410077fde636ace1aa677f1f.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697578&Signature=Y72cartgxcMjoeF4nuwrqanh43KMNTDXqVp17K2cDBzln3sXAmiGRP~a1sBPdMaBilirlPKHIkk7rNNVeXU~FmSQfaH9yIadEP97H8ZuM1I7oyyp~pMQoc02TuWGlTAnZzz0lijY7SRFswoJpuSlxSUaPEKawsS~2hYh5ui9zCH-KAQxaePfCP8fSbfaYSbbZsiOODzMBeRLKOQDcugbjmaQx21hu39BhxpgqThxcVhANyh0gBJ-BmXR6iWV9jkmus0RyBUnNcBzyWkh0i7AiNCvXCXPqvUjTdMq7HKdWanl3h3me3hsIX9fHSt3LLXb6PyuLDbzyeqIw1sKtK0Icg__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Item 7 (New Position 7 - Previously 3rd) -->
+                <div class="masonry-item group">
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-rose-900/10 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d3o8hbmq1ueggw.cloudfront.net/67p00%2Ffile%2Fae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4?response-content-disposition=inline%3Bfilename%3D%22ae5ac726d277ae3094b7b14e46172715_af5420c8c88c78854ec7a136c80b40c7.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697021&Signature=ce4Nd2-L3xV~oURQhvoPNLAb~hZjVmJ6q7Ib69YPzqMQeUKFCBFZAw8Lg0KgdAleI5ninTTr~SdYcce-b2yOKeQqzlrglZXTVRd9CnQ2mpBtYs4Scqh5Iv88rnO9kgTQHfyLFcViYFhOytXJ02e5WR2w9clnQMek~SV6MZI9mzBqOlzaCfbevPPxdwmk1Dc0Njhth4Y1b1drAWSAcgtfe8RRu1n1XgF1Mp0vHvz8y0Pxk5VVfYk4shCYpOMF1YzmkXc5e1WnE5WQqe~KYlFHHqlTmTiAwc4yB4LdLqbIYOgsHpog1KXe1yZt7w7GbSIjr6Xidb1-WlP6~hey-4bTLw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Item 8 (New Position 8 - Previously 2nd) -->
+                <div class="masonry-item group">
+                    <div class="video-container relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-blue-900/10 border border-white/5 shadow-2xl transition-all duration-700">
+                        <video loop muted playsinline class="w-full h-full object-cover" src="https://d3ri2dsnqsgisz.cloudfront.net/j4q95f%2Fpreview%2F76289390%2Fmain_x360.mp4?response-content-disposition=inline%3Bfilename%3D%22main_x360.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1773697526&Signature=RiDdAIdbbOZ-3xGVMi~vMyqrPfktynLwMq3QthLEkUeONFh2~rTHrM9VMET-TKXtVj3ZnYnybnoeHKHg8axmqfR2JUff7PbDWir8yJKK~5VUaBesLZIbStNJu8AfB-fgzCjW9m0nQayA4XdRh7-QSVsPmpu~rA-b67AsmlinkrNn8tuiqGVTr-jA66kYTqcJAYtfXTkoeiAjRfO6fZSZkv0lNp4DoLL4k0twMJZHWB189-JlJy-sbsw3zY7BclVZT4jjZCZBYslE-m8eRHrmMKSJFNXsz6lWe6Cyu9hNHulY~MMqKVPyukQODKKGgV35LrqFhwQoTMmOL-I8NmXeJw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ"></video>
+                        <button onclick="toggleVolume(this)" class="volume-btn absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white z-20">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -296,7 +317,6 @@
                 <i class="fa-solid fa-briefcase text-purple-600 text-2xl md:text-4xl"></i> Experience
             </h2>
             <div class="space-y-24 border-l border-white/10 pl-8 ml-2">
-                <!-- Experience Item -->
                 <div class="relative group">
                     <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-black border-4 border-purple-600 group-hover:bg-purple-600 transition-all duration-300"></div>
                     <div class="flex flex-col gap-4">
@@ -400,6 +420,34 @@
     </footer>
 
     <script>
+        // Intersection Observer for scroll-based autoplay
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target.querySelector('video');
+                const container = entry.target;
+                
+                if (entry.isIntersecting) {
+                    container.classList.add('is-playing');
+                    video.play().catch(e => {
+                        console.warn("Autoplay was prevented. Tap to interact.");
+                    });
+                } else {
+                    container.classList.remove('is-playing');
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.6
+        });
+
+        // Initialize observers
+        window.onload = function() {
+            document.querySelectorAll('.video-container').forEach(container => {
+                videoObserver.observe(container);
+            });
+            revealSections();
+        };
+
         // Navbar scroll effect
         window.onscroll = function() {
             const navbar = document.getElementById("navbar");
@@ -428,8 +476,24 @@
                     behavior: "smooth"
                 });
             }
-            // Close mobile menu
             closeMobileMenu();
+        }
+
+        // Volume Toggle function
+        function toggleVolume(btn) {
+            const container = btn.closest('.video-container');
+            const video = container.querySelector('video');
+            const icon = btn.querySelector('i');
+            
+            if (video.muted) {
+                video.muted = false;
+                icon.classList.remove('fa-volume-xmark');
+                icon.classList.add('fa-volume-high');
+            } else {
+                video.muted = true;
+                icon.classList.remove('fa-volume-high');
+                icon.classList.add('fa-volume-xmark');
+            }
         }
 
         // Toggle mobile menu
@@ -440,7 +504,7 @@
                 menu.classList.remove("translate-x-full");
                 icon.classList.remove("fa-bars");
                 icon.classList.add("fa-xmark");
-                document.body.style.overflow = "hidden"; // Prevent scroll
+                document.body.style.overflow = "hidden";
             } else {
                 closeMobileMenu();
             }
@@ -455,39 +519,6 @@
             document.body.style.overflow = "auto";
         }
 
-        // Video control
-        function playVideo(container) {
-            const video = container.querySelector('video');
-            if (video) {
-                video.play().catch(e => {});
-            }
-        }
-
-        function pauseVideo(container) {
-            const video = container.querySelector('video');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-        }
-
-        // Touch handling for mobile video preview
-        function handleVideoTap(container) {
-            // Check if it's already playing
-            if (container.classList.contains('playing')) {
-                container.classList.remove('playing');
-                pauseVideo(container);
-            } else {
-                // Pause all other videos
-                document.querySelectorAll('.video-container.playing').forEach(c => {
-                    c.classList.remove('playing');
-                    pauseVideo(c);
-                });
-                container.classList.add('playing');
-                playVideo(container);
-            }
-        }
-
         // Section reveal animation on scroll
         function revealSections() {
             var reveals = document.querySelectorAll(".reveal");
@@ -500,11 +531,6 @@
                 }
             }
         }
-
-        // Initial check
-        window.onload = function() {
-            revealSections();
-        };
     </script>
 </body>
 </html>
